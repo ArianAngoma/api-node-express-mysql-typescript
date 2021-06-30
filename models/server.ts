@@ -1,8 +1,11 @@
-import express, {Application} from 'express';
+import express, {Application, request} from 'express';
 import cors from 'cors';
 
 import userRoutes from '../routes/user';
 import db from "../db/connection";
+
+// Importar el modelo
+import '../models/user'
 
 class Server {
     private app: Application;
@@ -18,7 +21,6 @@ class Server {
         // DB
         this.dbConnection();
 
-
         // Middlewares
         this.middlewares();
 
@@ -28,11 +30,10 @@ class Server {
 
     async dbConnection() {
         try {
-            await db.authenticate();
             await db.sync({force: false});
 
             console.log('DB online');
-        } catch (err){
+        } catch (err) {
             throw new Error(err)
         }
     }
@@ -48,7 +49,7 @@ class Server {
         this.app.use(express.static('public'));
     }
 
-    routes(){
+    routes() {
         this.app.use(this.apiPaths.users, userRoutes);
     }
 

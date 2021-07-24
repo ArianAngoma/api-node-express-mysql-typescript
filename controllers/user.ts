@@ -44,6 +44,7 @@ export const putUser = async (req: Request, res: Response) => {
 export const deleteUser = async (req: Request, res: Response) => {
     const {id} = req.params;
 
+    // Buscar usuario por ID
     const user = await User.findByPk(id);
 
     // Eliminación física

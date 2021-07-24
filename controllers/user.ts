@@ -15,7 +15,9 @@ export const getUser = async (req: Request, res: Response) => {
 export const postUser = async (req: Request, res: Response) => {
     const {name, email} = req.body;
     try {
+        // Crear usuario
         const user = User.build({name, email});
+
         await user.save();
         res.json(user);
     } catch (err) {

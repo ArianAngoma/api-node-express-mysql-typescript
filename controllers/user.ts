@@ -18,7 +18,9 @@ export const postUser = async (req: Request, res: Response) => {
         // Crear usuario
         const user = User.build({name, email});
 
+        // Guardar usuario en DB
         await user.save();
+
         res.json(user);
     } catch (err) {
         console.log(err);

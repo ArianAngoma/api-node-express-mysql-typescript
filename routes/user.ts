@@ -9,6 +9,7 @@ const router = Router();
 // Obtener todos los usuarios
 router.get('/', getUsers);
 
+// Obtener USER por ID
 router.get('/:id', [
     check('id').custom(existsIdUser),
     check('id').custom(isStateUserTrue),

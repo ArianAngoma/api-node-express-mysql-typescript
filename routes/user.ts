@@ -6,6 +6,7 @@ import validateFields from "../middlewares/validate-fields";
 
 const router = Router();
 
+// Obtener todos los usuarios
 router.get('/', getUsers);
 
 router.get('/:id', [

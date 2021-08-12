@@ -33,6 +33,7 @@ router.put('/:id', [
     validateFields
 ], putUser);
 
+// Eliminar User by Id
 router.delete('/:id', [
     check('id').custom(existsIdUser),
     check('id').custom(isStateUserTrue),

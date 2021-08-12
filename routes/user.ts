@@ -16,6 +16,7 @@ router.get('/:id', [
     validateFields
 ], getUser);
 
+// Crear nuevo USER
 router.post('/', [
     check('email', 'El correo es obligatorio').not().isEmpty(),
     check('email', 'No es un correo válido').isEmail(),

@@ -25,6 +25,7 @@ router.post('/', [
     validateFields
 ], postUser);
 
+// Actualizar User por Id
 router.put('/:id', [
     check('id').custom(existsIdUser),
     check('email', 'No es un correo válido').isEmail(),

@@ -1,6 +1,7 @@
 import {Request, Response} from "express";
 import User from "../models/user";
 
+// Obtener todos los usuarios
 export const getUsers = async (req: Request, res: Response) => {
     const users = await User.findAll();
     res.json({users});
